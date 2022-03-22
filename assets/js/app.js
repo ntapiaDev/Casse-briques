@@ -13,7 +13,9 @@ let generateBlock = function() {
     }
     game.appendChild(block)
 }
-for (let i = 0; i < 100; i++) {
+let totalBlock = 100
+let blockInfo = document.querySelector(".bloc-info")
+for (let i = 0; i < totalBlock; i++) {
     generateBlock()
 }
 
@@ -64,12 +66,13 @@ let moveBall = function() {
     let positionBall = []
     positionBall.push(ball.getBoundingClientRect().x, ball.getBoundingClientRect().y)
     for (let i = 2; i < game.children.length; i++) {
-        if ((positionBlocs[i-2][0] - positionBall[0] > -20 && positionBlocs[i-2][0] - positionBall[0] < 20) && (positionBlocs[i-2][1] - positionBall[1] > -20 && positionBlocs[i-2][1] - positionBall[1] < 20) && game.children[i].style.opacity !== "0") {
+        if ((positionBlocs[i-2][0] - positionBall[0] > -30 && positionBlocs[i-2][0] - positionBall[0] < 30) && (positionBlocs[i-2][1] - positionBall[1] > -20 && positionBlocs[i-2][1] - positionBall[1] < 20) && game.children[i].style.opacity !== "0") {
             game.children[i].style.opacity = "0"
             ySpeed = -speed
+            totalBlock -= 1
+            blockInfo.textContent = totalBlock
             // Activation des bonus
-            if (game.children[i].classList) {
-                
+            if (game.children[i].classList.contains("awesome")) {
             }
         }
     }
