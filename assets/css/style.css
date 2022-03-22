@@ -37,9 +37,13 @@ main p .bloc-info {
   color: red;
 }
 
+main p i:hover {
+  cursor: pointer;
+}
+
 .game {
   width: 720px;
-  height: 480px;
+  height: 720px;
   padding: 1px 0 0 1px;
   border: 3px double #AAA;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -59,6 +63,10 @@ main p .bloc-info {
 }
 
 .game__block.awesome {
+  background-color: green;
+}
+
+.game__block.amazing {
   background-color: red;
 }
 

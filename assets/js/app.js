@@ -9,12 +9,18 @@ let generateBlock = function() {
     block.classList.add("game__block")
     // Block bonus
     if(Math.random() > 0.9) {
-        block.classList.add("awesome")
+        if (Math.random() > 0.8) {
+            block.classList.add("amazing")
+        } else {
+            block.classList.add("awesome")
+        }
     }
     game.appendChild(block)
 }
-let totalBlock = 100
+let totalBlock = 150
+let remainingBlock = totalBlock
 let blockInfo = document.querySelector(".bloc-info")
+blockInfo.textContent = totalBlock
 for (let i = 0; i < totalBlock; i++) {
     generateBlock()
 }
@@ -69,10 +75,13 @@ let moveBall = function() {
         if ((positionBlocs[i-2][0] - positionBall[0] > -30 && positionBlocs[i-2][0] - positionBall[0] < 30) && (positionBlocs[i-2][1] - positionBall[1] > -20 && positionBlocs[i-2][1] - positionBall[1] < 20) && game.children[i].style.opacity !== "0") {
             game.children[i].style.opacity = "0"
             ySpeed = -speed
-            totalBlock -= 1
-            blockInfo.textContent = totalBlock
+            remainingBlock -= 1
+            blockInfo.textContent = remainingBlock
             // Activation des bonus
             if (game.children[i].classList.contains("awesome")) {
+                // xSpeed = 2
+                // ySpeed = 2
+                // speed = 2
             }
         }
     }
@@ -98,3 +107,46 @@ document.addEventListener("keydown", function(e) {
         controller.style.left = controllerLeft
     }
 })
+
+// Reset
+let reset = document.querySelector(".reset")
+reset.addEventListener("click", function() {
+    for (let i = 2; i < game.children.length; i++) {
+        if (game.children[i].style.opacity === "0") {
+            game.children[i].style.display = "none"
+        }
+    }
+    let regenerateBlock = function() {
+        while (remainingBlock < totalBlock) {
+            generateBlock()
+            remainingBlock += 1
+            blockInfo.textContent = remainingBlock
+        }
+    }
+    setTimeout(regenerateBlock, 100)
+
+    
+
+    // ball.style.left = game.getBoundingClientRect().width/2 - 8 + "px"
+    // ball.style.bottom = "30px"
+    // controller.style.left = game.getBoundingClientRect().width/2 - 125 + "px"
+    // xSpeed = speed
+    // ySpeed = speed
+    // ballBottom = ball.style.bottom 
+    // ballLeft = ball.style.left
+    // interval = undefined
+})
+
+// Kill blocks
+
+// let blocks = []
+// for (let i = 2; i < game.children.length; i++) {
+//     blocks.push(game.children[i])
+// }
+// blocks.forEach(function(block) {
+//     block.addEventListener("mouseover", function() {
+//         block.style.opacity = "0"
+//         remainingBlock -= 1
+//         blockInfo.textContent = remainingBlock
+//     })
+// })
