@@ -1,0 +1,56 @@
+body {
+  height: 100vh;
+  background-color: #EEE;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.game {
+  width: 720px;
+  height: 480px;
+  padding: 1px 0 0 1px;
+  border: 3px double #AAA;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  background-color: #FFF;
+  line-height: 0;
+}
+
+.game__block {
+  width: calc(10% - 2px);
+  height: 25px;
+  margin: 1px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  background-color: #666;
+  display: inline-block;
+}
+
+.game__block.awesome {
+  background-color: red;
+}
+
+.game__ball {
+  position: absolute;
+}
+/*# sourceMappingURL=style.css.map */

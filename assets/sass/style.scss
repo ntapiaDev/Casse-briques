@@ -1,0 +1,40 @@
+@import 'mixins';
+@import 'variables';
+
+body {
+    height: 100vh;
+    background-color: #EEE;
+    @include flex-center();
+}
+
+main {
+    position: relative;
+    @include flex-center();
+}
+
+.game {
+    width: 720px;
+    height: 480px;
+    padding: 1px 0 0 1px;
+    border: 3px double #AAA;
+    box-shadow: $light-shadow;
+    background-color: #FFF;
+    line-height: 0;
+
+    &__block {
+        width: calc(10% - 2px);
+        height: 25px;
+        margin: 1px;
+        box-shadow: $light-shadow;
+        background-color: #666;
+        display: inline-block;
+
+        &.awesome {
+            background-color: red;
+        }
+    }
+
+    &__ball {
+        position: absolute;
+    }
+}
